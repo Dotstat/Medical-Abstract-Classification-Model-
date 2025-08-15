@@ -1,2 +1,13 @@
-# Medical-Abstract-Classification-Model-
-A multi-class predictive model for classifying medical abstracts into disease categories. Built using TF-IDF (1–2 n-grams), logistic regression, and specialist one-vs-rest models to improve performance through targeted feature selection and threshold tuning.
+# Disease Abstract Classification — Guarded Fusion (R0 → R1 → R2)
+
+Three-round pipeline for medical abstract classification:
+- **R0**: seed specialists from baseline LR coefficients
+- **R1**: error-mined keywords per class
+- **R2**: both-wrong pair mining + seed∪pair gating
+
+## Quickstart
+```bash
+pip install -r requirements.txt
+python scripts/train_r0_r1_r2.py
+```
+Artifacts are saved to `models/` (gitignored).
